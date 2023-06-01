@@ -27,6 +27,7 @@ Medical Subject Headings (MeSH®)
 Online Mendelian Inheritance in Man (OMIM®)
 91% of the mentions map to a single disease concept
 divided into training, developing and testing sets.
+
 ### Corpus Annotation
 Fourteen annotators
 Two-annotators per document (randomly paired)
@@ -41,17 +42,20 @@ I choose one of the available PubMedBERTs — BERT models that have been pretrai
 
 Then I used this tokenizer to tokenize the texts (every sentence in our corpus is a list of words, so I need to tell the tokenizer the text has already been split into words). In addition, I'll  pad and truncate the texts. Sentences that are longer than 256 tokens will be truncated, and all sentences will be padded to the length of the (resulting) longest one.
 
-## Evaluating the results
+### Evaluating the results
 
-{'eval_loss': 0.04833297058939934,
- 'eval_accuracy': 0.9847328244274809,
- 'eval_f1': 0.8363954505686789,
- 'eval_precision': 0.8363954505686789,
- 'eval_recall': 0.8363954505686789,
- 'eval_runtime': 6.0943,
- 'eval_samples_per_second': 154.406,
- 'eval_steps_per_second': 9.681,
- 'epoch': 4.0}
+| Metric               | Value                 |
+|----------------------|-----------------------|
+| eval_loss            | 0.04833297058939934   |
+| eval_accuracy        | 0.9847328244274809    |
+| eval_f1              | 0.8363954505686789    |
+| eval_precision       | 0.8363954505686789    |
+| eval_recall          | 0.8363954505686789    |
+| eval_runtime         | 6.0943                |
+| eval_samples_per_second | 154.406              |
+| eval_steps_per_second | 9.681                 |
+| epoch                | 4.0                   |
+
  
  ### Based on the evaluation metrics, the BERT pretrained model performs well on the NCBI dataset corpus. Here are the key observations:
 
@@ -71,5 +75,4 @@ Then I used this tokenizer to tokenize the texts (every sentence in our corpus i
 ### It can be concluded that the BERT pretrained model demonstrates good performance on the NCBI dataset corpus, achieving high accuracy, precision, recall, and F1 score. The model appears to have learned the patterns in the data and is capable of identifying named entities effectively. 
 
 # Conclusion:
-
-### The model identified several entities related to a genetic disorder called ataxia-telangiectasia. It recognized terms such as "ataxia," "telangiectasia," "recessive," "multi-system disorder," and "mutations in the ATM gene at 11q22." These findings suggest that the model is able to accurately identify and label relevant medical entities associated with ataxia-telangiectasia.
+The model identified several entities related to a genetic disorder called ataxia-telangiectasia. It recognized terms such as "ataxia," "telangiectasia," "recessive," "multi-system disorder," and "mutations in the ATM gene at 11q22." These findings suggest that the model is able to accurately identify and label relevant medical entities associated with ataxia-telangiectasia.
